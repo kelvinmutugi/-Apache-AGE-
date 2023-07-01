@@ -84,7 +84,48 @@ int F(int n) {
     it may require more complex code to implement the iterative process.
 */
 
+// 4.Tabulation Function
+int F(int n) {
+  int memo[n + 1];
+  memo[0] = 0;
+  memo[1] = 1;
+  memo[2] = 2;
+  for (int i = 3; i <= n; i++) {
+    memo[i] = memo[i - 3] + memo[i - 2];
+  }
+  return memo[n];
+}
+/*
+This is the most efficient way to implement the recurrence relation.
+ It uses a table to store the values of F(0), F(1), ..., F(n) so that they can be looked up directly.
+*/
+// 4.Memoization  Function
+int F(int n, int *memo) {
+  if (n == 0) {
+    return 0;
+  } else if (n == 1) {
+    return 1;
+  } else if (n == 2) {
+    return 2;
+  } else if (memo[n] == 0) {
+    memo[n] = F(n - 3, memo) + F(n - 2, memo);
+  }
+  return memo[n];
+}
 
+/*
+This is a more efficient way to implement the recurrence relation. 
+It uses a memoization table to store the values of F(n-3) and F(n-2) so that they don't have to be recalculated every time.
+*/
+
+
+/*
+Implementation	   Advantages	                           Disadvantages
+Recursive	      Simple to implement	                     Inefficient
+Memoized	      More efficient than recursive	         More difficult to implement
+Tabulated	      Most efficient	                         Most difficult to implement
+
+*/
 // SUMMARY
 /*
     In summary, the recursive method is simple to implement but inefficient for large values of n, 
