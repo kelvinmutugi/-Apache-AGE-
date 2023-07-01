@@ -122,7 +122,7 @@ It uses a memoization table to store the values of F(n-3) and F(n-2) so that the
 /*
 Implementation	   Advantages	                           Disadvantages
 Recursive	      Simple to implement	                     Inefficient
-Memoized	      More efficient than recursive	         More difficult to implement
+Memoized	      More efficient than recursive	            More difficult to implement
 Tabulated	      Most efficient	                         Most difficult to implement
 
 */
